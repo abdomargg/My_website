@@ -468,20 +468,31 @@
   <div class="container">
     <div class="booking">
       <div class="form-card">
-        <div class="form-grid">
-          <div class="field"><i class="fa-solid fa-phone"></i><input type="text" placeholder="رقم الهاتف"></div>
-          <div class="field"><i class="fa-solid fa-user"></i><input type="text" placeholder="الاسم بالكامل"></div>
-          <div class="field"><i class="fa-solid fa-location-dot"></i><input type="text" placeholder="من (مكان التحميل)"></div>
-          <div class="field"><i class="fa-solid fa-location-dot"></i><input type="text" placeholder="إلى (مكان التسليم)"></div>
-          <div class="field"><i class="fa-solid fa-house"></i><input type="text" placeholder="تاريخ النقل"></div>
-          <div class="field"><i class="fa-regular fa-calendar"></i><input type="text" placeholder="عدد الغرف"></div>
-        </div>
-        <div class="checks">
-          <label class="chk"><i class="fa-solid fa-check"></i> فك وتركيب</label>
-          <label class="chk"><i class="fa-solid fa-check"></i> ونش رفع</label>
-          <label class="chk"><i class="fa-solid fa-check"></i> تغليف الأثاث</label>
-        </div>
-        <a href="#" class="btn-gold form-submit"><i class="fa-solid fa-paper-plane"></i> إرسال الطلب</a>
+        <form id="bookingForm" action="https://formsubmit.co/ahmed5abdallah2005@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="طلب نقل أثاث جديد - MovePro">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://abdomargg.github.io/My_website/thanks.html">
+
+          <div class="form-grid">
+            <div class="field"><i class="fa-solid fa-phone"></i><input type="text" name="رقم_الهاتف" id="f_phone" placeholder="رقم الهاتف" required></div>
+            <div class="field"><i class="fa-solid fa-user"></i><input type="text" name="الاسم" id="f_name" placeholder="الاسم بالكامل" required></div>
+            <div class="field"><i class="fa-solid fa-location-dot"></i><input type="text" name="من" id="f_from" placeholder="من (مكان التحميل)"></div>
+            <div class="field"><i class="fa-solid fa-location-dot"></i><input type="text" name="إلى" id="f_to" placeholder="إلى (مكان التسليم)"></div>
+            <div class="field"><i class="fa-solid fa-house"></i><input type="text" name="تاريخ_النقل" id="f_date" placeholder="تاريخ النقل"></div>
+            <div class="field"><i class="fa-regular fa-calendar"></i><input type="text" name="عدد_الغرف" id="f_rooms" placeholder="عدد الغرف"></div>
+          </div>
+
+          <div class="checks">
+            <label class="chk"><input type="checkbox" name="خدمات" value="فك وتركيب" style="margin-left:6px;"><i class="fa-solid fa-check"></i> فك وتركيب</label>
+            <label class="chk"><input type="checkbox" name="خدمات" value="ونش رفع" style="margin-left:6px;"><i class="fa-solid fa-check"></i> ونش رفع</label>
+            <label class="chk"><input type="checkbox" name="خدمات" value="تغليف الأثاث" style="margin-left:6px;"><i class="fa-solid fa-check"></i> تغليف الأثاث</label>
+          </div>
+
+          <button type="submit" class="btn-gold form-submit" style="width:100%;justify-content:center;margin-top:16px;">
+            <i class="fa-solid fa-paper-plane"></i> إرسال الطلب
+          </button>
+        </form>
       </div>
       <div class="booking-text">
         <span class="eyebrow">احجز الآن</span>
@@ -491,6 +502,28 @@
     </div>
   </div>
 </section>
+
+<script>
+document.getElementById('bookingForm').addEventListener('submit', function(){
+  var name = document.getElementById('f_name').value;
+  var phone = document.getElementById('f_phone').value;
+  var from = document.getElementById('f_from').value;
+  var to = document.getElementById('f_to').value;
+  var date = document.getElementById('f_date').value;
+  var rooms = document.getElementById('f_rooms').value;
+
+  var msg = "طلب نقل أثاث جديد من MovePro%0A"
+    + "الاسم: " + name + "%0A"
+    + "الهاتف: " + phone + "%0A"
+    + "من: " + from + "%0A"
+    + "إلى: " + to + "%0A"
+    + "تاريخ النقل: " + date + "%0A"
+    + "عدد الغرف: " + rooms;
+
+  window.open("https://wa.me/2001041255019?text=" + msg, "_blank");
+  // الفورم هيكمل يبعت على الإيميل عادي بعد فتح الواتساب
+});
+</script>
 
 <!-- ===== Why us ===== -->
 <section class="section">
